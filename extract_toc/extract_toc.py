@@ -27,6 +27,11 @@ def extract_toc(content):
     if toc:
         toc.extract()
         content._content = soup.decode()
+        
+        title = toc.find('p', { 'class': 'topic-title' })
+        if title:
+            title.extract()
+
         content.toc = toc.decode()
 
 
